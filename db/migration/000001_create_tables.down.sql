@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS "likes";
+DROP TABLE IF EXISTS "tweets";
+DROP TABLE IF EXISTS "followers";
+DROP TABLE IF EXISTS "users";
