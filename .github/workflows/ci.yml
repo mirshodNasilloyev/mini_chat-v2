@@ -14,7 +14,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
+
     services:
+
       postgres:
         image: postgres:12
         env:
@@ -38,4 +40,15 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+
+
+      - name: Stop old PostgreSQL containers
+        run: |
+          docker ps -q --filter ancestor=postgres:12 | xargs -r docker stop
+          docker ps -aq --filter ancestor=postgres:12 | xargs -r docker rm
+
+      - name: Check PostgreSQL logs
+        if: failure()
+        run: docker logs $(docker ps -a -q --filter ancestor=postgres:12) || true
+
 
