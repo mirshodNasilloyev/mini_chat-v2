@@ -16,11 +16,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12
+        image: postgres12
         env:
+          POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
           POSTGRES_DB: mini_chatdb
-          POSTGRES_USER: root
         options: >-
           --health-cmd pg_ready
           --health-interval 10s
