@@ -9,6 +9,7 @@ import (
 )
 
 // Create Random User on DB
+//Hello world
 func createRandomUser(t *testing.T) Users {
 	args := CreateUserParams{
 		Name:         utils.RandomName(6),
