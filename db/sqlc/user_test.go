@@ -9,7 +9,7 @@ import (
 )
 
 // Create Random User on DB
-//Hello world
+// Hello world
 func createRandomUser(t *testing.T) Users {
 	args := CreateUserParams{
 		Name:         utils.RandomName(6),
@@ -82,7 +82,7 @@ func TestListUsers(t *testing.T) {
 
 	args := ListUsersParams{
 		Limit:  5,
-		Offset: 5,
+		Offset: 0,
 	}
 
 	users, err := testQueries.ListUsers(context.Background(), args)
